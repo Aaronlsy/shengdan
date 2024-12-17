@@ -12,10 +12,12 @@
       padding: 30px;
     }
     .tree {
-      width: 200px;
-      height: 300px;
+      width: 300px;  /* 增大树的宽度 */
+      height: 450px; /* 增大树的高度 */
       background-image: url('pexels-serenakoi-5801143.jpg'); /* 使用上传的图片 */
-      background-size: cover;
+      background-size: contain; /* 使用contain使图片适应容器 */
+      background-position: center;
+      background-repeat: no-repeat;
       margin: 20px auto;
     }
     h1 {
@@ -59,7 +61,7 @@
     function showGreeting() {
       const myName = document.getElementById('myName').value;
       const recipientName = document.getElementById('recipientName').value;
-      const greetingMessage = `亲爱的 ${recipientName}，祝你和你的家人圣诞节快乐！🎄 送上来自 ${myName} 的温馨祝福！`;
+      const greetingMessage = `亲爱的 ${recipientName}，祝你圣诞节快乐，永远开心！🎄 送上来自 ${myName} 的温馨祝福！`;
 
       document.getElementById('greeting').textContent = greetingMessage;
     }
