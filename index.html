@@ -7,27 +7,28 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #f0f8ff;
+      background: linear-gradient(135deg, #ff4b4b, #2e8b57); /* 圣诞红绿色渐变背景 */
       text-align: center;
       padding: 30px;
+      color: white; /* 字体颜色为白色，以便在背景上清晰可见 */
     }
     .tree {
-      width: 300px;  /* 增大树的宽度 */
-      height: 450px; /* 增大树的高度 */
+      width: 300px;
+      height: 450px;
       background-image: url('pexels-serenakoi-5801143.jpg'); /* 使用上传的图片 */
-      background-size: contain; /* 使用contain使图片适应容器 */
+      background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       margin: 20px auto;
     }
     h1 {
-      color: #ff6347;
+      color: #fff;
     }
     input[type="text"] {
       padding: 10px;
       margin: 10px;
       font-size: 16px;
-      border: 2px solid #ff6347;
+      border: 2px solid #fff;
       border-radius: 5px;
     }
     button {
@@ -41,13 +42,27 @@
     button:hover {
       background-color: #ff4500;
     }
+    #greeting {
+      font-size: 20px;
+      color: #fff;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
 
   <h1>圣诞节祝福</h1>
+  
+  <!-- 圣诞树图片 -->
   <div class="tree"></div>
 
+  <!-- 音乐 -->
+  <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3"> <!-- 你可以使用自己的音乐文件URL -->
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- 输入框和按钮 -->
   <p>请输入你的名字和祝福对象的名字：</p>
 
   <input type="text" id="myName" placeholder="请输入你的名字" /><br>
@@ -55,13 +70,14 @@
 
   <button onclick="showGreeting()">生成祝福</button>
 
-  <p id="greeting" style="font-size: 20px; color: #2e8b57; margin-top: 20px;"></p>
+  <!-- 祝福显示 -->
+  <p id="greeting"></p>
 
   <script>
     function showGreeting() {
       const myName = document.getElementById('myName').value;
       const recipientName = document.getElementById('recipientName').value;
-      const greetingMessage = `亲爱的 ${recipientName}，祝你圣诞节快乐，永远开心！🎄 送上来自 ${myName} 的温馨祝福！`;
+      const greetingMessage = `亲爱的 ${recipientName}，祝你和你的家人圣诞节快乐！🎄 送上来自 ${myName} 的温馨祝福！`;
 
       document.getElementById('greeting').textContent = greetingMessage;
     }
