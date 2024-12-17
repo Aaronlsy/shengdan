@@ -5,13 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>圣诞祝福</title>
   <style>
-    body {
+    /* 确保整个页面都使用渐变背景 */
+    html, body {
+      height: 100%;  /* 确保页面高度为100% */
+      margin: 0;     /* 去掉页面的默认边距 */
+      background: linear-gradient(135deg, #ff4b4b, #2e8b57); /* 红绿色渐变背景 */
       font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #ff4b4b, #2e8b57); /* 圣诞红绿色渐变背景 */
+      color: white; /* 文字颜色为白色 */
+      display: flex;  /* 使用flexbox来居中内容 */
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 30px;
-      color: white; /* 字体颜色为白色，以便在背景上清晰可见 */
     }
+
+    /* 样式调整圣诞树图片 */
     .tree {
       width: 300px;
       height: 450px;
@@ -19,11 +26,13 @@
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
-      margin: 20px auto;
+      margin-bottom: 20px;
     }
+
     h1 {
       color: #fff;
     }
+
     input[type="text"] {
       padding: 10px;
       margin: 10px;
@@ -31,6 +40,7 @@
       border: 2px solid #fff;
       border-radius: 5px;
     }
+
     button {
       padding: 10px 20px;
       background-color: #ff6347;
@@ -39,9 +49,11 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
     button:hover {
       background-color: #ff4500;
     }
+
     #greeting {
       font-size: 20px;
       color: #fff;
@@ -51,27 +63,30 @@
 </head>
 <body>
 
-  <h1>圣诞节祝福</h1>
-  
-  <!-- 圣诞树图片 -->
-  <div class="tree"></div>
+  <div>
+    <h1>圣诞节祝福</h1>
 
-  <!-- 音乐 -->
-  <audio autoplay loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3"> <!-- 你可以使用自己的音乐文件URL -->
-    Your browser does not support the audio element.
-  </audio>
+    <!-- 圣诞树图片 -->
+    <div class="tree"></div>
 
-  <!-- 输入框和按钮 -->
-  <p>请输入你的名字和祝福对象的名字：</p>
+    <!-- 音乐 -->
+    <audio autoplay loop>
+      <!-- 将 Base64 编码的音频放入 src 中 -->
+      <source src="data:audio/mp3;base64,SUQzBAAAAAAAI1NFWEQAAAAAAAAAAAAAAAAAAAAA..." type="audio/mp3"> 
+      Your browser does not support the audio element.
+    </audio>
 
-  <input type="text" id="myName" placeholder="请输入你的名字" /><br>
-  <input type="text" id="recipientName" placeholder="请输入被祝福的名字" /><br>
+    <!-- 输入框和按钮 -->
+    <p>请输入你的名字和祝福对象的名字：</p>
 
-  <button onclick="showGreeting()">生成祝福</button>
+    <input type="text" id="myName" placeholder="请输入你的名字" /><br>
+    <input type="text" id="recipientName" placeholder="请输入被祝福的名字" /><br>
 
-  <!-- 祝福显示 -->
-  <p id="greeting"></p>
+    <button onclick="showGreeting()">生成祝福</button>
+
+    <!-- 祝福显示 -->
+    <p id="greeting"></p>
+  </div>
 
   <script>
     function showGreeting() {
